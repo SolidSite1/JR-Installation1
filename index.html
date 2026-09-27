@@ -19,6 +19,7 @@
                 <li><a href="#services">Services</a></li>
                 <li><a href="#gallery">Gallery</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <li><a href="#calculator">Cost Calculator</a></li>
                 <li><a href="#estimate">Estimate</a></li>
             </ul>
                <button class="burger-menu" aria-label="Toggle navigation menu">
@@ -30,6 +31,9 @@
     </header>
 
     <section id="home" class="palette-hero">
+        <video class="palette-hero-video" autoplay loop muted playsinline poster="media/Ex-Bck.jpg" aria-hidden="true" tabindex="-1">
+            <source src="media/hero-video.mp4" type="video/mp4">
+        </video>
         <div class="palette-hero-content">
             <h1>JR Installation</h1>
             <p>Your Trusted Austin TX Countertop Remodeler</p>
@@ -47,7 +51,13 @@
 
     <section id="gallery" class="palette-gallery">
         <div class="container">
-            <h2>Gallery</h2>
+            <div class="gallery-heading">
+                <div>
+                    <span class="gallery-eyebrow">JR Installation / Selected work</span>
+                    <h2>Stone, shaped for home.</h2>
+                </div>
+                <p>A closer look at kitchen surfaces, islands, and details completed around Austin.</p>
+            </div>
             <div class="gallery-slider">
                 <div class="gallery-track">
                     <div class="gallery-slide active">
@@ -148,6 +158,7 @@
                     </div>
                 </div>
                 <div class="gallery-controls" aria-label="Gallery controls">
+                    <span class="gallery-count" aria-live="polite">01 / 12</span>
                     <button class="gallery-control gallery-prev" type="button" aria-label="Previous image">&#8592;</button>
                     <button class="gallery-control gallery-next" type="button" aria-label="Next image">&#8594;</button>
                 </div>
@@ -189,6 +200,77 @@
         </div>
     </section>
 
+    <section class="jr-calc" id="calculator" aria-labelledby="jr-calc-title">
+        <div class="container">
+            <div class="jr-calc-heading">
+                <span class="jr-calc-kicker">Plan your project</span>
+                <h2 id="jr-calc-title">Countertop Cost Calculator</h2>
+                <p>Build a preliminary installed price range around your kitchen, material, and finish choices.</p>
+                <span class="jr-calc-credit">Estimate model adapted from A1 Custom Countertops. Final pricing follows an in-home measurement.</span>
+            </div>
+            <div class="jr-calc-layout">
+                <div class="jr-calc-controls">
+                    <div class="jr-calc-field">
+                        <label class="jr-calc-label" for="jr-sqft"><span>Total countertop area</span><strong id="jr-sqft-value">45 sq ft</strong></label>
+                        <input id="jr-sqft" type="range" min="10" max="200" step="1" value="45">
+                        <p class="jr-calc-help">Include every countertop run and the island, if you have one.</p>
+                    </div>
+                    <fieldset class="jr-calc-field">
+                        <legend class="jr-calc-label">Material</legend>
+                        <div class="jr-calc-materials" role="group" aria-label="Choose a material">
+                            <button class="jr-calc-material" type="button" data-jr-material="granite" aria-pressed="false"><span class="jr-calc-swatch jr-swatch-granite" aria-hidden="true"></span><span>Granite</span></button>
+                            <button class="jr-calc-material" type="button" data-jr-material="quartz" aria-pressed="true"><span class="jr-calc-swatch jr-swatch-quartz" aria-hidden="true"></span><span>Quartz</span></button>
+                            <button class="jr-calc-material" type="button" data-jr-material="marble" aria-pressed="false"><span class="jr-calc-swatch jr-swatch-marble" aria-hidden="true"></span><span>Marble</span></button>
+                            <button class="jr-calc-material" type="button" data-jr-material="quartzite" aria-pressed="false"><span class="jr-calc-swatch jr-swatch-quartzite" aria-hidden="true"></span><span>Quartzite</span></button>
+                        </div>
+                        <p class="jr-calc-help">Stone availability and pricing vary by color and supplier.</p>
+                    </fieldset>
+                    <fieldset class="jr-calc-field">
+                        <legend class="jr-calc-label">Slab level</legend>
+                        <div class="jr-calc-levels" role="group" aria-label="Choose a slab level">
+                            <button class="jr-calc-level" type="button" data-jr-level="1" aria-pressed="false"><strong>Level 1</strong><span>Everyday</span></button>
+                            <button class="jr-calc-level" type="button" data-jr-level="2" aria-pressed="true"><strong>Level 2</strong><span>Popular</span></button>
+                            <button class="jr-calc-level" type="button" data-jr-level="3" aria-pressed="false"><strong>Level 3</strong><span>Premium</span></button>
+                            <button class="jr-calc-level" type="button" data-jr-level="4" aria-pressed="false"><strong>Level 4</strong><span>Exotic</span></button>
+                        </div>
+                    </fieldset>
+                    <div class="jr-calc-field jr-calc-selects">
+                        <label class="jr-calc-label" for="jr-edge">Edge profile</label>
+                        <select id="jr-edge"><option value="standard">Standard eased edge (included)</option><option value="beveled">Beveled or bullnose</option><option value="ogee">Ogee / decorative</option><option value="mitered-apron">Mitered apron edge</option><option value="waterfall">Waterfall edge</option></select>
+                    </div>
+                    <div class="jr-calc-field jr-calc-selects">
+                        <label class="jr-calc-label" for="jr-backsplash">Backsplash</label>
+                        <select id="jr-backsplash"><option value="standard">4-inch backsplash</option><option value="full-height">Full-height splash</option></select>
+                    </div>
+                    <div class="jr-calc-field jr-calc-row">
+                        <div><span class="jr-calc-label">Sink cutouts</span><p class="jr-calc-help">Undermount or drop-in sink openings</p></div>
+                        <div class="jr-calc-stepper"><button type="button" data-jr-step="sink" data-jr-dir="-1" aria-label="Decrease sink cutouts">-</button><output id="jr-sink-value" aria-live="polite">1</output><button type="button" data-jr-step="sink" data-jr-dir="1" aria-label="Increase sink cutouts">+</button></div>
+                    </div>
+                    <div class="jr-calc-field jr-calc-row">
+                        <div><span class="jr-calc-label">Cooktop cutout</span><p class="jr-calc-help">Opening for a built-in cooktop</p></div>
+                        <button class="jr-calc-switch" type="button" id="jr-cooktop" role="switch" aria-checked="false" aria-label="Cooktop cutout"></button>
+                    </div>
+                    <div class="jr-calc-field jr-calc-row">
+                        <div><span class="jr-calc-label">Remove old countertops</span><p class="jr-calc-help">Tear-out and haul-away</p></div>
+                        <button class="jr-calc-switch" type="button" id="jr-removal" role="switch" aria-checked="true" aria-label="Remove existing countertops"></button>
+                    </div>
+                </div>
+                <aside class="jr-calc-result" aria-live="polite" aria-label="Estimated countertop cost">
+                    <span class="jr-calc-result-kicker">Your planning range</span>
+                    <strong class="jr-calc-total" id="jr-result-range">$0 - $0</strong>
+                    <p class="jr-calc-summary">For <span id="jr-note-sqft">45</span> sq ft of <span id="jr-note-material">quartz</span>, Level <span id="jr-note-level">2</span>, installed.</p>
+                    <div class="jr-calc-breakdown">
+                        <div><span id="jr-material-label">Material (1 slab, Level 2)</span><b id="jr-material-cost">$0-$0</b></div>
+                        <div><span>Fabrication &amp; installation</span><b id="jr-install-cost">$0</b></div>
+                        <div><span>Removal &amp; haul-away</span><b id="jr-removal-cost">$300-$500</b></div>
+                    </div>
+                    <a class="jr-calc-cta" id="jr-calc-quote" href="#contact">Request this estimate <span aria-hidden="true">&rarr;</span></a>
+                    <p class="jr-calc-disclaimer">Planning estimate only. Your exact quote is confirmed after a free in-home measurement.</p>
+                </aside>
+            </div>
+        </div>
+    </section>
+
     <section id="contact" class="palette-contact">
         <div class="container">
             <h2>Contact Us</h2>
@@ -203,7 +285,7 @@
                     <input type="text" name="name" placeholder="Your Name" required>
                     <input type="email" name="email" placeholder="Your Email" required>
                     <input type="tel" name="phone" placeholder="Your Phone">
-                    <textarea name="message" placeholder="Your Message" required></textarea>
+                    <textarea id="contactMessage" name="message" placeholder="Your Message" required></textarea>
                     <button type="submit">Send Message</button>
                 </form>
             </div>
@@ -216,7 +298,7 @@
 
     <footer>
         <div class="footer-image">
-            <img src="media/footer1.png" alt="JR Installation footer">
+            <img src="media/truck.png" alt="JR Installation footer">
         </div>
         <div class="container">
             <p>&copy; 2024 JR Installation. All rights reserved.</p>
@@ -241,7 +323,17 @@
                 dot.classList.toggle('active', i === index);
             });
             currentSlide = index;
+            document.querySelector('.gallery-count').textContent =
+                String(index + 1).padStart(2, '0') + ' / ' + String(slides.length).padStart(2, '0');
         }
+
+        dots.forEach((dot, index) => {
+            const image = slides[index].querySelector('img');
+            if (image) {
+                dot.style.backgroundImage = `url("${image.src}")`;
+                dot.setAttribute('aria-label', `Show ${image.alt}`);
+            }
+        });
 
         function showNext() {
             const nextIndex = (currentSlide + 1) % slides.length;
@@ -447,6 +539,82 @@
                    burgerMenu.classList.remove('active');
                }
            });
+       </script>
+       <script>
+           (() => {
+               const calculator = document.querySelector('#calculator');
+               const query = (selector) => calculator.querySelector(selector);
+               const all = (selector) => Array.from(calculator.querySelectorAll(selector));
+               const state = { sqft: 45, material: 'quartz', level: 2, edge: 'standard', sink: 1, cooktop: 0, backsplash: 0, removal: 1 };
+               const slabPrices = { 1: 800, 2: 1500, 3: 3000, 4: 6000 };
+               const materialFactors = { granite: 0.94, quartz: 1, marble: 1.19, quartzite: 1.34 };
+               const edgePrices = { standard: [0, 0], beveled: [8, 15], ogee: [18, 30], 'mitered-apron': [55, 85], waterfall: [95, 145] };
+               const laborRates = { 1: 25, 2: 30, 3: 35, 4: 40 };
+               const money = (amount) => '$' + Math.round(amount).toLocaleString('en-US');
+               const moneyRange = (low, high) => Math.round(low) === Math.round(high) ? money(low) : money(low) + '-' + money(high);
+
+               function calculate() {
+                   const slabs = Math.max(1, Math.ceil(state.sqft / 54));
+                   const linearFeet = state.sqft / 54 * 19;
+                   const materialLow = slabs * slabPrices[state.level] * 1.5 * materialFactors[state.material];
+                   const materialHigh = materialLow * 1.12;
+                   const edge = edgePrices[state.edge];
+                   const edgeLow = state.edge === 'standard' ? 0 : linearFeet * edge[0];
+                   const edgeHigh = state.edge === 'standard' ? 0 : linearFeet * edge[1];
+                   const cutouts = (state.sink + state.cooktop) * 200;
+                   const splashLow = state.backsplash ? linearFeet * 20 : 0;
+                   const splashHigh = state.backsplash ? linearFeet * 35 : 0;
+                   const removalLow = state.removal ? 300 : 0;
+                   const removalHigh = state.removal ? 500 : 0;
+                   const laborLow = state.sqft * laborRates[state.level];
+                   const laborHigh = laborLow * 1.12;
+                   const installLow = Math.max(500, laborLow + edgeLow) + cutouts + splashLow;
+                   const installHigh = Math.max(1000, laborHigh + edgeHigh) + cutouts + splashHigh;
+                   const totalLow = materialLow + installLow + removalLow;
+                   const totalHigh = materialHigh + installHigh + removalHigh;
+
+                   query('#jr-result-range').textContent = money(totalLow) + ' - ' + money(totalHigh);
+                   query('#jr-note-sqft').textContent = state.sqft;
+                   query('#jr-note-material').textContent = state.material;
+                   query('#jr-note-level').textContent = state.level;
+                   query('#jr-material-label').textContent = `Material (${slabs} slab${slabs > 1 ? 's' : ''}, Level ${state.level})`;
+                   query('#jr-material-cost').textContent = money(materialLow) + '-' + money(materialHigh);
+                   query('#jr-install-cost').textContent = moneyRange(installLow, installHigh);
+                   query('#jr-removal-cost').textContent = state.removal ? money(removalLow) + '-' + money(removalHigh) : '$0';
+                   query('#jr-sqft-value').textContent = state.sqft + ' sq ft';
+               }
+
+               query('#jr-sqft').addEventListener('input', (event) => { state.sqft = Number(event.target.value); calculate(); });
+               all('[data-jr-material]').forEach((button) => button.addEventListener('click', () => {
+                   all('[data-jr-material]').forEach((choice) => choice.setAttribute('aria-pressed', 'false'));
+                   button.setAttribute('aria-pressed', 'true');
+                   state.material = button.dataset.jrMaterial;
+                   calculate();
+               }));
+               all('[data-jr-level]').forEach((button) => button.addEventListener('click', () => {
+                   all('[data-jr-level]').forEach((choice) => choice.setAttribute('aria-pressed', 'false'));
+                   button.setAttribute('aria-pressed', 'true');
+                   state.level = Number(button.dataset.jrLevel);
+                   calculate();
+               }));
+               query('#jr-edge').addEventListener('change', (event) => { state.edge = event.target.value; calculate(); });
+               query('#jr-backsplash').addEventListener('change', (event) => { state.backsplash = event.target.value === 'full-height' ? 1 : 0; calculate(); });
+               all('[data-jr-step="sink"]').forEach((button) => button.addEventListener('click', () => {
+                   state.sink = Math.max(0, Math.min(4, state.sink + Number(button.dataset.jrDir)));
+                   query('#jr-sink-value').textContent = state.sink;
+                   calculate();
+               }));
+               ['cooktop', 'removal'].forEach((name) => query('#jr-' + name).addEventListener('click', (event) => {
+                   state[name] = state[name] ? 0 : 1;
+                   event.currentTarget.setAttribute('aria-checked', String(Boolean(state[name])));
+                   calculate();
+               }));
+               query('#jr-calc-quote').addEventListener('click', () => {
+                   const message = document.querySelector('#contactMessage');
+                   message.value = `I'd like a quote based on my countertop calculator estimate.\nEstimated range: ${query('#jr-result-range').textContent}\nArea: ${state.sqft} sq ft\nMaterial: ${state.material}, Level ${state.level}\nEdge: ${state.edge}\nBacksplash: ${state.backsplash ? 'Full-height' : '4-inch'}\nSink cutouts: ${state.sink}\nCooktop cutout: ${state.cooktop ? 'Yes' : 'No'}\nOld countertop removal: ${state.removal ? 'Yes' : 'No'}`;
+               });
+               calculate();
+           })();
        </script>
 </body>
 </html>
